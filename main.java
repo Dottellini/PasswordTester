@@ -2,7 +2,7 @@ import java.lang.Math;
 
 public class main {
 
-    public static class PasswordChecker {
+    public static class PasswordObject {
         int score;
         int lengthScore;
         int charScore;
@@ -10,7 +10,7 @@ public class main {
         int specialScore;
         int maxScore;
 
-        public PasswordChecker(int a, int b, int c, int d, int e, int f) {
+        public PasswordObject(int a, int b, int c, int d, int e, int f) {
             this.score = a;
             this.lengthScore = b;
             this.charScore = c;
@@ -19,7 +19,7 @@ public class main {
             this.maxScore = f;
         }
 
-        public PasswordChecker() {}
+        public PasswordObject() {}
 
         @Override
         public String toString() {
@@ -28,7 +28,7 @@ public class main {
 
     }
 
-    public static PasswordChecker pwChecker(String p) {
+    public static PasswordObject pwChecker(String p) {
         int score = 0;
 
         int expDiv = 2;
@@ -103,13 +103,13 @@ public class main {
         maxScore = (p.length() > 8 ? (int)Math.pow(expDiv, p.length()/3) - 1 : ((int)Math.pow(expDiv, 8)) - 1) + 10 + 4 + 8;
 
 
-        PasswordChecker check = new PasswordChecker(score, lengthScore, charScore, numScore, specialScore, maxScore);
+        PasswordObject check = new PasswordObject(score, lengthScore, charScore, numScore, specialScore, maxScore);
 
         return check;
     }
 
     public static void main(String[] args) {
-        PasswordChecker pw = new PasswordChecker();
+        PasswordObject pw = new PasswordObject();
         pw = pwChecker("aaaaAAAA1111____"); //Enter Password here
         
         System.out.println(pw.toString());
